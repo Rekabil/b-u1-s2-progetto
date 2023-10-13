@@ -36,6 +36,10 @@ public class Libri {
         return genere;
     }
 
+    public int getNumeroPagine() {
+        return numeroPagine;
+    }
+
     public String getTitolo() {
         return titolo;
     }

@@ -27,4 +27,12 @@ public class Reviste {
     public String getTitolo() {
         return titolo;
     }
+
+    public String getPeriodicita() {
+        return periodicita;
+    }
+
+    public int getNumeroPagine() {
+        return numeroPagine;
+    }
 }

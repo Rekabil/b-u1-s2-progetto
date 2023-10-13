@@ -1,7 +1,12 @@
 import entites.Libri;
 import entites.Reviste;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +14,7 @@ public class Main {
     static List<Libri> catalogoLibri = new ArrayList<>();
     static List<Reviste> catalogoReviste= new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Libri book1 = new Libri("Lord of the Rings", 1952, 599, "J. R. R. Tolkien", "Fantasy");
         Libri book2 = new Libri("The Hobbit", 1927, 453, "J. R. R. Tolkien", "Fantasy");
         Libri book3 = new Libri("Horus Rising", 2006, 520, "Dan Abnett", "Sci-fi");
@@ -42,13 +47,15 @@ start();
 
 
         }
-        public static void start() {
+        public static void start() throws IOException {
             Scanner input = new Scanner(System.in);
             System.out.println("Inserici il numero della optione desiderata.");
             System.out.println("1. Aggiungi un nuovo Libro o Revista");
             System.out.println("2. Monstra tutti i Catalogi");
             System.out.println("3. Rimuovere un Elemento");
             System.out.println("4. Ricerca uno libro o revista specifico");
+            System.out.println("5. Salva i catalogi nel disco locale");
+            System.out.println("6. Prendi i dati dal disco locale");
             int num = Integer.parseInt(input.nextLine());
 
             switch (num) {
@@ -64,12 +71,18 @@ start();
                 case 4: {
                     search();
                 }
+                case 5: {
+                    saveToDisk();
+                }
+                case 6:{
+                    loadFromDisk();
+                }
             }
 
     }
 
 
-    public static void aggiungi() {
+    public static void aggiungi() throws IOException {
         Scanner input = new Scanner(System.in);
         System.out.println("Inserici 1. per aggiungere un Libro o 2. per Aggiungere una Revista");
         int num = Integer.parseInt(input.nextLine());
@@ -124,7 +137,7 @@ start();
         }
     }
 
-    public static void stampaLibreria(){
+    public static void stampaLibreria() throws IOException {
         System.out.println("Catalogo Libri");
         catalogoLibri.forEach(libri -> System.out.println("Titolo: " + libri.getTitolo() + " Autore: " + libri.getAutore()+" Anno Publicazione: "+ libri.getAnnoPublicazione() + " Genere: " +libri.getGenere() + " ISBN: " +libri.getId()    ));
     System.out.println("Catalogo Reviste");
@@ -132,7 +145,7 @@ start();
     start();
     }
 
-    public static void rimuovere() {
+    public static void rimuovere() throws IOException {
         System.out.println("Vuoi Rimuovere un Libro o Revista");
         System.out.println("Inserisci 1 per Libro e qualsiasi altro numero per Revista");
         Scanner input = new Scanner(System.in);
@@ -223,6 +236,65 @@ break;
         }
     }
 
+    public static void saveToDisk() throws IOException {
+        try {
+            String catalogolibri = "";
+            String catalogoreviste = "";
+
+
+            for (Libri libri : catalogoLibri) {
+                catalogolibri += libri.getTitolo()+ "@" +libri.getAnnoPublicazione()+"@"+ libri.getNumeroPagine()+ "@" + libri.getAutore() + "@" + libri.getGenere() + "#";
+            }
+
+            for (Reviste reviste : catalogoReviste) {
+                catalogoreviste += reviste.getTitolo() + "@" + reviste.getAnnoPublicazione()+ "@"+ reviste.getNumeroPagine() +"@" + reviste.getPeriodicita()+ "#";
+            }
+            File file = new File("catalogLibri.txt");
+            File reviste = new File("catalogoRev.txt");
+            FileWriter myWriter = new FileWriter("catalogLibri.txt");
+            myWriter.write(catalogolibri);
+            myWriter.close();
+
+            FileWriter myReviste = new FileWriter("catalogRev.txt");
+            myReviste.write(catalogoreviste);
+            myReviste.close();
+            System.out.println("Salvato con Sucesso");
+
+        } catch (IOException e) {
+            System.out.println("Errore");
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadFromDisk() throws FileNotFoundException {
+        try {
+            File libricatalog = new File("catalogLibri.txt");
+            File revistecatalog = new File("catalogoRev.txt");
+            Scanner readerLibri = new Scanner(libricatalog);
+            Scanner readerReviste = new Scanner(revistecatalog);
+            while (readerLibri.hasNextLine()) {
+                String data = readerLibri.nextLine();
+                List<String> libriSplit = Arrays.asList(data.split("#"));
+                List<Libri> listaLibri = libriSplit.stream().map(stringa -> {
+                   String[] libriInfo = stringa.split("@");
+                   return new Libri(libriInfo[0], Integer.parseInt(libriInfo[1])  ,Integer.parseInt(libriInfo[2]) ,libriInfo[3],libriInfo[4]);
+                }).toList();
+                listaLibri.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getAutore() + " " + libri.getGenere() + " "));
+            }
+            while (readerReviste .hasNextLine()) {
+                String data = readerReviste.nextLine();
+                List<String> revisteSplit = Arrays.asList(data.split("#"));
+                List<Reviste> listaLibri = revisteSplit.stream().map(stringa -> {
+                    String[] revisteInfo = stringa.split("@");
+                    return new Reviste(revisteInfo[0], Integer.parseInt(revisteInfo[1])  ,Integer.parseInt(revisteInfo[2]) ,revisteInfo[3]);
+                }).toList();
+                listaLibri.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getPeriodicita()));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("C'e un Errore");
+            e.printStackTrace();
+        }
+    }
 
 
 }
