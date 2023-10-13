@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bfc8e82a-582c-4397-8b88-03240a58c293" name="Changes" comment="save and load">
+      <change afterPath="$PROJECT_DIR$/Library/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Library/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Library/src/main/java/org/example/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Library/src/test/java/org/example/ApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/b-u1-s2-progetto.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogLibri.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogRev.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entites/Libri.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entites/Reviste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/.idea/b-u1-s2-progetto.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/catalogLibri.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/catalogRev.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/catalogReviste.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/entites/Libri.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/b-u1-s2-progetto/entites/Reviste.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2WhP44kyj2auspQNA1EpxuU7H0q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rekabil/Desktop/Epicode BackEnd/b-u1-s2-progetto&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bfc8e82a-582c-4397-8b88-03240a58c293" name="Changes" comment="" />
+      <created>1697181644260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697181644260</updated>
+    </task>
+    <task id="LOCAL-00001" summary="first Libri">
+      <option name="closed" value="true" />
+      <created>1697184833360</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697184833360</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Reviste">
+      <option name="closed" value="true" />
+      <created>1697186505733</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697186505733</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Search">
+      <option name="closed" value="true" />
+      <created>1697203353736</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697203353736</updated>
+    </task>
+    <task id="LOCAL-00004" summary="save and load">
+      <option name="closed" value="true" />
+      <created>1697208239519</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697208239519</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first Libri" />
+    <MESSAGE value="Reviste" />
+    <MESSAGE value="Search" />
+    <MESSAGE value="save and load" />
+    <option name="LAST_COMMIT_MESSAGE" value="save and load" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

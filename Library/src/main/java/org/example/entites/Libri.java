@@ -1,20 +1,23 @@
-package entites;
+package org.example.entites;
 
 import java.util.Random;
 
-public class Reviste {
+public class Libri {
     Long id;
     String titolo;
     int annoPublicazione;
     int numeroPagine;
-    String periodicita;
-    public Reviste(String titolo,int annoPublicazione, int numeroPagine, String periodicita) {
+    String autore;
+    String genere;
+
+    public Libri(String titolo,int annoPublicazione, int numeroPagine, String autore, String genere) {
         Random rndm = new Random();
         this.id = rndm.nextLong();
         this.titolo = titolo;
         this.annoPublicazione = annoPublicazione;
         this.numeroPagine = numeroPagine;
-        this.periodicita = periodicita;
+        this.autore = autore;
+        this.genere = genere;
     }
 
     public Long getId() {
@@ -24,15 +27,22 @@ public class Reviste {
     public int getAnnoPublicazione() {
         return annoPublicazione;
     }
-    public String getTitolo() {
-        return titolo;
+
+    public String getAutore() {
+        return autore;
     }
 
-    public String getPeriodicita() {
-        return periodicita;
+    public String getGenere() {
+        return genere;
     }
 
     public int getNumeroPagine() {
         return numeroPagine;
     }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+
 }

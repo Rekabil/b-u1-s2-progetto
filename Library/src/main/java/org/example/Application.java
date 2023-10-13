@@ -1,5 +1,8 @@
-import entites.Libri;
-import entites.Reviste;
+package org.example;
+
+import org.apache.commons.io.FileUtils;
+import org.example.entites.Libri;
+import org.example.entites.Reviste;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Application {
     static List<Libri> catalogoLibri = new ArrayList<>();
     static List<Reviste> catalogoReviste= new ArrayList<>();
 
@@ -43,41 +46,41 @@ public class Main {
         catalogoReviste.add(rev5);
 
 
-start();
+        start();
 
 
-        }
-        public static void start() throws IOException {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Inserici il numero della optione desiderata.");
-            System.out.println("1. Aggiungi un nuovo Libro o Revista");
-            System.out.println("2. Monstra tutti i Catalogi");
-            System.out.println("3. Rimuovere un Elemento");
-            System.out.println("4. Ricerca uno libro o revista specifico");
-            System.out.println("5. Salva i catalogi nel disco locale");
-            System.out.println("6. Prendi i dati dal disco locale");
-            int num = Integer.parseInt(input.nextLine());
+    }
+    public static void start() throws IOException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Inserici il numero della optione desiderata.");
+        System.out.println("1. Aggiungi un nuovo Libro o Revista");
+        System.out.println("2. Monstra tutti i Catalogi");
+        System.out.println("3. Rimuovere un Elemento");
+        System.out.println("4. Ricerca uno libro o revista specifico");
+        System.out.println("5. Salva i catalogi nel disco locale");
+        System.out.println("6. Prendi i dati dal disco locale");
+        int num = Integer.parseInt(input.nextLine());
 
-            switch (num) {
-                case 1: {
-                    aggiungi();
-                }
-                case 2: {
-                    stampaLibreria();
-                }
-                case 3: {
-                    rimuovere();
-                }
-                case 4: {
-                    search();
-                }
-                case 5: {
-                    saveToDisk();
-                }
-                case 6:{
-                    loadFromDisk();
-                }
+        switch (num) {
+            case 1: {
+                aggiungi();
             }
+            case 2: {
+                stampaLibreria();
+            }
+            case 3: {
+                rimuovere();
+            }
+            case 4: {
+                search();
+            }
+            case 5: {
+                saveToDisk();
+            }
+            case 6:{
+                loadFromDisk();
+            }
+        }
 
     }
 
@@ -101,10 +104,10 @@ start();
             System.out.println("Inserici il Genere");
             String genere = input.nextLine();
             Libri libri = new Libri(titolo , anno , numPag , autore, genere);
-catalogoLibri.add(libri);
-System.out.println("Libro aggiunto con Successo");
+            catalogoLibri.add(libri);
+            System.out.println("Libro aggiunto con Successo");
 
-start();
+            start();
 
 
         } else if (num == 2) {
@@ -120,11 +123,11 @@ start();
             System.out.println("3. SEMESTRALE");
             int periodicitaCase = Integer.parseInt(input.nextLine());
             String periodicita = "";
-          switch (periodicitaCase) {
-              case 1: periodicita = "SETTIMANALE";
-              case 2: periodicita = "MENSILE";
-              case 3: periodicita = "SEMESTRALE";
-          }
+            switch (periodicitaCase) {
+                case 1: periodicita = "SETTIMANALE";
+                case 2: periodicita = "MENSILE";
+                case 3: periodicita = "SEMESTRALE";
+            }
 
             Reviste reviste = new Reviste(titolo , anno , numPag , periodicita );
             catalogoReviste.add(reviste);
@@ -140,9 +143,9 @@ start();
     public static void stampaLibreria() throws IOException {
         System.out.println("Catalogo Libri");
         catalogoLibri.forEach(libri -> System.out.println("Titolo: " + libri.getTitolo() + " Autore: " + libri.getAutore()+" Anno Publicazione: "+ libri.getAnnoPublicazione() + " Genere: " +libri.getGenere() + " ISBN: " +libri.getId()    ));
-    System.out.println("Catalogo Reviste");
-    catalogoReviste.forEach(reviste -> System.out.println("Titolo: " + reviste.getTitolo()+" Anno Publicazione: "+ reviste.getAnnoPublicazione() + " ISBN: " +reviste.getId()));
-    start();
+        System.out.println("Catalogo Reviste");
+        catalogoReviste.forEach(reviste -> System.out.println("Titolo: " + reviste.getTitolo()+" Anno Publicazione: "+ reviste.getAnnoPublicazione() + " ISBN: " +reviste.getId()));
+        start();
     }
 
     public static void rimuovere() throws IOException {
@@ -153,12 +156,12 @@ start();
         if (num == 1) {
             System.out.println("Devi inserire il ISBN del Libro");
             Long isbn = Long.valueOf(input.nextLine());
-catalogoLibri.removeIf(libri -> libri.getId().equals(isbn));
-System.out.println("Libro rimosso");
+            catalogoLibri.removeIf(libri -> libri.getId().equals(isbn));
+            System.out.println("Libro rimosso");
         } else {
             System.out.println("Devi inserire il ISBN della Revista");
             Long isbn = Long.valueOf(input.nextLine());
-catalogoReviste.removeIf(reviste -> reviste.getId().equals(isbn));
+            catalogoReviste.removeIf(reviste -> reviste.getId().equals(isbn));
             System.out.println("Revista rimosso");
         }
         start();
@@ -187,8 +190,8 @@ catalogoReviste.removeIf(reviste -> reviste.getId().equals(isbn));
                 Long isbn = Long.valueOf(input.nextLine());
                 List<Libri> risultato = catalogoLibri.stream().filter(libri -> libri.getId().equals(isbn)).toList();
                 System.out.println("Risultato:");
-               risultato.forEach(libri-> System.out.println("Titolo: " + libri.getTitolo() + " Autore: " + libri.getAutore()+" Anno Publicazione: "+ libri.getAnnoPublicazione() + " Genere: " +libri.getGenere() + " ISBN: " +libri.getId()    ));
-               break;
+                risultato.forEach(libri-> System.out.println("Titolo: " + libri.getTitolo() + " Autore: " + libri.getAutore()+" Anno Publicazione: "+ libri.getAnnoPublicazione() + " Genere: " +libri.getGenere() + " ISBN: " +libri.getId()    ));
+                break;
             }
             case 2: {
                 System.out.println("Inserici il Anno di usita");
@@ -196,7 +199,7 @@ catalogoReviste.removeIf(reviste -> reviste.getId().equals(isbn));
                 List<Libri> risultato = catalogoLibri.stream().filter(libri -> libri.getAnnoPublicazione() == anno).toList();
                 System.out.println("Risultato:");
                 risultato.forEach(libri-> System.out.println("Titolo: " + libri.getTitolo() + " Autore: " + libri.getAutore()+" Anno Publicazione: "+ libri.getAnnoPublicazione() + " Genere: " +libri.getGenere() + " ISBN: " +libri.getId()    ));
-break;
+                break;
             }
             case 3: {
                 System.out.println("Inserici il Autore");
@@ -251,13 +254,8 @@ break;
             }
             File file = new File("catalogLibri.txt");
             File reviste = new File("catalogoRev.txt");
-            FileWriter myWriter = new FileWriter("catalogLibri.txt");
-            myWriter.write(catalogolibri);
-            myWriter.close();
-
-            FileWriter myReviste = new FileWriter("catalogRev.txt");
-            myReviste.write(catalogoreviste);
-            myReviste.close();
+            FileUtils.writeStringToFile(file, catalogolibri , "UTF-8");
+            FileUtils.writeStringToFile(reviste, catalogoreviste , "UTF-8");
             System.out.println("Salvato con Sucesso");
 
         } catch (IOException e) {
@@ -270,29 +268,30 @@ break;
         try {
             File libricatalog = new File("catalogLibri.txt");
             File revistecatalog = new File("catalogoRev.txt");
-            Scanner readerLibri = new Scanner(libricatalog);
-            Scanner readerReviste = new Scanner(revistecatalog);
-            while (readerLibri.hasNextLine()) {
-                String data = readerLibri.nextLine();
-                List<String> libriSplit = Arrays.asList(data.split("#"));
-                List<Libri> listaLibri = libriSplit.stream().map(stringa -> {
-                   String[] libriInfo = stringa.split("@");
-                   return new Libri(libriInfo[0], Integer.parseInt(libriInfo[1])  ,Integer.parseInt(libriInfo[2]) ,libriInfo[3],libriInfo[4]);
-                }).toList();
-                listaLibri.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getAutore() + " " + libri.getGenere() + " "));
-            }
-            while (readerReviste .hasNextLine()) {
-                String data = readerReviste.nextLine();
-                List<String> revisteSplit = Arrays.asList(data.split("#"));
-                List<Reviste> listaLibri = revisteSplit.stream().map(stringa -> {
+
+            System.out.println("Catalogo Libri");
+            String dataLibri = FileUtils.readFileToString(libricatalog,"UTF-8");
+            List<String> libriSplit = Arrays.asList(dataLibri.split("#"));
+            List<Libri> listaLibri = libriSplit.stream().map(stringa -> {
+                    String[] libriInfo = stringa.split("@");
+                    return new Libri(libriInfo[0], Integer.parseInt(libriInfo[1])  ,Integer.parseInt(libriInfo[2]) ,libriInfo[3],libriInfo[4]);
+            }).toList();
+            listaLibri.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getAutore() + " " + libri.getGenere() + " "));
+
+System.out.println("Catalogo Reviste");
+                String dataReviste = FileUtils.readFileToString(revistecatalog,"UTF-8");
+                List<String> revisteSplit = Arrays.asList(dataReviste.split("#"));
+                List<Reviste> listaReviste = revisteSplit.stream().map(stringa -> {
                     String[] revisteInfo = stringa.split("@");
                     return new Reviste(revisteInfo[0], Integer.parseInt(revisteInfo[1])  ,Integer.parseInt(revisteInfo[2]) ,revisteInfo[3]);
                 }).toList();
-                listaLibri.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getPeriodicita()));
-            }
+            listaReviste.forEach(libri ->  System.out.println(libri.getTitolo()+ " " +libri.getAnnoPublicazione()+" "+ libri.getNumeroPagine()+ " " + libri.getPeriodicita()));
+
         } catch (FileNotFoundException e) {
             System.out.println("C'e un Errore");
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
